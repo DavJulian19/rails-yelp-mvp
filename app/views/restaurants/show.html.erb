@@ -1,0 +1,26 @@
+<div class="container m-3 col-lg-6 mx-auto text-dark">
+  <h1><%= @restaurant.name %></h1>
+  <p><span class="fw-bold">Address:</span><br>
+    <%= @restaurant.address %></p>
+  <p><span class="fw-bold">Phone number:</span><br>
+    <%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category.capitalize %></p>
+
+  <div class="navbar">
+    <%= link_to "Create a review", new_restaurant_review_path(@restaurant), class: "nav-item" %>
+    <%= link_to restaurants_path, class: "nav-item" do %>
+      <%# <i class="fa-solid fa-arrow-rotate-left"></i> %>
+      Back to restaurants
+    <% end %>
+  </div>
+
+  <ul class="list-group">
+    <% @reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.rating %>
+        <%= review.content %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
